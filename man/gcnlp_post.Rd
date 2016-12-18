@@ -4,12 +4,10 @@
 \alias{gcnlp_post}
 \title{Send a POST request to the Google Cloud Natural Language API}
 \usage{
-gcnlp_post(api_key = gcnlp_key(), text_body, extract_syntax = TRUE,
-  extract_entities = TRUE, extract_document_sentiment = TRUE)
+gcnlp_post(text_body, extract_syntax = TRUE, extract_entities = TRUE,
+  extract_document_sentiment = TRUE)
 }
 \arguments{
-\item{api_key}{Your API key, from \url{https://console.cloud.google.com/apis/credentials}. Either enter the API key directly, or access it via \code{gcnlp_key()}.}
-
 \item{text_body}{The text string to send to the API.}
 
 \item{extract_syntax}{Behavior for the analyzeSyntax method. Defaults to \code{TRUE}. See \href{https://cloud.google.com/natural-language/reference/rest/v1/documents/analyzeSyntax}{the API documentation} for more information.}
@@ -25,8 +23,7 @@ A list containing two elements: [1] \code{content} includes the parsed response,
 Send a POST request to the Google Cloud Natural Language API and retrieve the results.
 }
 \examples{
-gcnlp_post(api_key = gcnlp_key(),
-           text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
+gcnlp_post(text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
                         Sundar Pichai said in his keynote that users love their new Android phones.",
            extract_syntax = TRUE,
            extract_entities = TRUE,

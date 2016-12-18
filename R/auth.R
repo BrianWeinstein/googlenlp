@@ -34,7 +34,6 @@ set_api_key <- function(api_key) {
 #' @return
 #' Your API key
 #'
-#' @export
 gcnlp_key <- function() {
 
   key <- gcnlp_env$GCNLP_API_KEY

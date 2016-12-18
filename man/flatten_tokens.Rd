@@ -16,8 +16,7 @@ A flattened data frame.
 Convert the JSON/list \code{tokens} response into a flattened data frame.
 }
 \examples{
-sample_post <- gcnlp_post(api_key = gcnlp_key(),
-                          text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
+sample_post <- gcnlp_post(text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
                                        Sundar Pichai said in his keynote that users love their new Android phones.",
                           extract_syntax = TRUE,
                           extract_entities = TRUE,

@@ -11,8 +11,7 @@ NULL
 #' @param sentences_list The \code{sentences} component of the API response.
 #' 
 #' @examples
-#' sample_post <- gcnlp_post(api_key = gcnlp_key(),
-#'                           text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
+#' sample_post <- gcnlp_post(text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
 #'                                        Sundar Pichai said in his keynote that users love their new Android phones.",
 #'                           extract_syntax = TRUE,
 #'                           extract_entities = TRUE,
@@ -44,8 +43,7 @@ flatten_sentences <- function(sentences_list){
 #' @param tokens_list The \code{tokens} component of the API response.
 #' 
 #' @examples
-#' sample_post <- gcnlp_post(api_key = gcnlp_key(),
-#'                           text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
+#' sample_post <- gcnlp_post(text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
 #'                                        Sundar Pichai said in his keynote that users love their new Android phones.",
 #'                           extract_syntax = TRUE,
 #'                           extract_entities = TRUE,
@@ -81,8 +79,7 @@ flatten_tokens <- function(tokens_list){
 #' @param entities_list The \code{entities} component of the API response.
 #' 
 #' @examples
-#' sample_post <- gcnlp_post(api_key = gcnlp_key(),
-#'                           text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
+#' sample_post <- gcnlp_post(text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
 #'                                        Sundar Pichai said in his keynote that users love their new Android phones.",
 #'                           extract_syntax = TRUE,
 #'                           extract_entities = TRUE,
@@ -146,8 +143,7 @@ flatten_entities <- function(entities_list){
 #' @param sentiment_list The \code{sentiment} component of the API response.
 #' 
 #' @examples
-#' sample_post <- gcnlp_post(api_key = gcnlp_key(),
-#'                           text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
+#' sample_post <- gcnlp_post(text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
 #'                                        Sundar Pichai said in his keynote that users love their new Android phones.",
 #'                           extract_syntax = TRUE,
 #'                           extract_entities = TRUE,
