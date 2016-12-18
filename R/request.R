@@ -32,15 +32,15 @@ gcnlp_post <- function(api_key = gcnlp_key(),
   url <- paste0("https://language.googleapis.com/v1/documents:annotateText/?key=", api_key)
   
   raw_response <- POST(url = url,
-                   config = c(user_agent("http://github.com/brianweinstein/googlenlp"),
-                              accept_json()),
-                   body = list(document=list(type="PLAIN_TEXT",
-                                             content=text_body),
-                               features=list(extractSyntax=extract_syntax,
-                                             extractEntities=extract_entities,
-                                             extractDocumentSentiment=extract_document_sentiment),
-                               encodingType="UTF8"),
-                   encode = "json")
+                       config = c(user_agent("http://github.com/brianweinstein/googlenlp"),
+                                  accept_json()),
+                       body = list(document = list(type = "PLAIN_TEXT",
+                                                   content = text_body),
+                                   features = list(extractSyntax = extract_syntax,
+                                                   extractEntities = extract_entities,
+                                                   extractDocumentSentiment = extract_document_sentiment),
+                                   encodingType = "UTF8"),
+                       encode = "json")
   
   # check if API returned JSON
   if (http_type(raw_response) != "application/json") {
@@ -54,7 +54,8 @@ gcnlp_post <- function(api_key = gcnlp_key(),
   if (http_error(raw_response)) {
     stop(
       paste0(
-        "Google Cloud Natural Language API request failed ", "[", status_code(raw_response), "]\n", 
+        "Google Cloud Natural Language API request failed ",
+        "[", status_code(raw_response), "]\n", 
         parsed$error$message, "\n",
         parsed$error$details[[1]]$links[[1]]$url
       ),
@@ -70,6 +71,4 @@ gcnlp_post <- function(api_key = gcnlp_key(),
     class = "google_natural_language_api"
   )
   
-  
 }
-

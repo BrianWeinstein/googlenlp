@@ -68,8 +68,8 @@ flatten_tokens <- function(tokens_list){
     select(content, beginOffset, lemma,
            tag, aspect, case, form, gender, mood, number,
            person, proper, reciprocity, tense, voice,
-           dependencyEdge_headTokenIndex=headTokenIndex,
-           dependencyEdge_label=label)
+           dependencyEdge_headTokenIndex = headTokenIndex,
+           dependencyEdge_label = label)
   
 }
 
@@ -107,16 +107,16 @@ flatten_entities <- function(entities_list){
            # extract 1:1 fields
            df1 <- flatten_df(element[c("name", "type", "metadata", "salience")]) %>%
              mutate(mid = as.character(ifelse("mid" %in% colnames(.), mid, NA)),
-                    wikipedia_url = as.character(ifelse("wikipedia_url" %in% colnames(.), wikipedia_url, NA)))
+                    wikipedia_url = as.character(ifelse("wikipedia_url" %in% colnames(.),wikipedia_url, NA)))
            df1 <- df1 %>%
-             select(name, entity_type=type, mid, wikipedia_url, salience)
+             select(name, entity_type = type, mid, wikipedia_url, salience)
            
            # extract 1:many fields
            df2 <- map_df(element$mentions,
                          function(inner_element){
                            
                            c(as.list(inner_element$text),
-                             mentions_type=inner_element$type)
+                             mentions_type = inner_element$type)
                            
                          }
            )
@@ -130,7 +130,8 @@ flatten_entities <- function(entities_list){
                     mid = df1$mid,
                     wikipedia_url = df1$wikipedia_url,
                     salience = df1$salience) %>%
-             select(name, entity_type, mid, wikipedia_url, salience, content, beginOffset, mentions_type)
+             select(name, entity_type, mid, wikipedia_url, salience,
+                    content, beginOffset, mentions_type)
            
          }
   )
@@ -169,4 +170,3 @@ flatten_sentiment <- function(sentiment_list){
     select(magnitude, score)
   
 }
-
