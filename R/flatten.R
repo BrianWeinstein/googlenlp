@@ -3,23 +3,26 @@
 #' @importFrom dplyr select mutate %>%
 NULL
 
-#' Flatten methods
+
+#' Flatten sentences
 #'
-#' Flatten each nested JSON/list API response into a data frame
+#' Convert the JSON/list \code{sentences} response into a flattened data frame.
 #' 
-#' @param param1 param1 description
+#' @param sentences_list The \code{sentences} component of the API response.
 #' 
 #' @examples
-#' example
+#' sample_post <- gcnlp_post(api_key = gcnlp_key(),
+#'                           text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
+#'                                        Sundar Pichai said in his keynote that users love their new Android phones.",
+#'                           extract_syntax = TRUE,
+#'                           extract_entities = TRUE,
+#'                           extract_document_sentiment = TRUE)
+#' 
+#' flatten_sentences(sentences_list = sample_post$content$sentences)
 #' 
 #' @return
-#' return
+#' A flattened data frame.
 #' 
-#' @name flatten
-NULL
-
-
-#' @rdname flatten
 #' @export
 flatten_sentences <- function(sentences_list){
   
@@ -29,7 +32,25 @@ flatten_sentences <- function(sentences_list){
 }
 
 
-#' @rdname flatten
+#' Flatten tokens
+#'
+#' Convert the JSON/list \code{tokens} response into a flattened data frame.
+#' 
+#' @param tokens_list The \code{tokens} component of the API response.
+#' 
+#' @examples
+#' sample_post <- gcnlp_post(api_key = gcnlp_key(),
+#'                           text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
+#'                                        Sundar Pichai said in his keynote that users love their new Android phones.",
+#'                           extract_syntax = TRUE,
+#'                           extract_entities = TRUE,
+#'                           extract_document_sentiment = TRUE)
+#' 
+#' flatten_tokens(tokens_list = sample_post$content$tokens)
+#' 
+#' @return
+#' A flattened data frame.
+#' 
 #' @export
 flatten_tokens <- function(tokens_list){
   
@@ -43,7 +64,25 @@ flatten_tokens <- function(tokens_list){
 }
 
 
-#' @rdname flatten
+#' Flatten entities
+#'
+#' Convert the JSON/list \code{entities} response into a flattened data frame.
+#' 
+#' @param entities_list The \code{entities} component of the API response.
+#' 
+#' @examples
+#' sample_post <- gcnlp_post(api_key = gcnlp_key(),
+#'                           text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
+#'                                        Sundar Pichai said in his keynote that users love their new Android phones.",
+#'                           extract_syntax = TRUE,
+#'                           extract_entities = TRUE,
+#'                           extract_document_sentiment = TRUE)
+#' 
+#' flatten_entities(entities_list = sample_post$content$entities)
+#' 
+#' @return
+#' A flattened data frame.
+#' 
 #' @export
 flatten_entities <- function(entities_list){
   
@@ -84,10 +123,30 @@ flatten_entities <- function(entities_list){
 }
 
 
-#' @rdname flatten
+#' Flatten sentiment
+#'
+#' Convert the JSON/list \code{sentiment} response into a flattened data frame.
+#' 
+#' @param sentiment_list The \code{sentiment} component of the API response.
+#' 
+#' @examples
+#' sample_post <- gcnlp_post(api_key = gcnlp_key(),
+#'                           text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
+#'                                        Sundar Pichai said in his keynote that users love their new Android phones.",
+#'                           extract_syntax = TRUE,
+#'                           extract_entities = TRUE,
+#'                           extract_document_sentiment = TRUE)
+#' 
+#' flatten_sentiment(sentiment_list = sample_post$content$sentiment)
+#' 
+#' @return
+#' A flattened data frame.
+#' 
 #' @export
 flatten_sentiment <- function(sentiment_list){
+  
   as.data.frame(sentiment_list) %>%
     select(magnitude, score)
+  
 }
 
