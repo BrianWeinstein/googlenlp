@@ -32,7 +32,7 @@ annotate_text <- function(api_key = gcnlp_key(),
   url <- paste0("https://language.googleapis.com/v1/documents:annotateText/?key=", api_key)
   
   response <- POST(url = url,
-                   config = c(user_agent("http://github.com/brianweinstein/naturalrlanguage"),
+                   config = c(user_agent("http://github.com/brianweinstein/googlenlp"),
                               accept_json()),
                    body = list(document=list(type="PLAIN_TEXT",
                                              content=text_body),
