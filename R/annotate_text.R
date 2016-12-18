@@ -1,5 +1,5 @@
 
-#' @importFrom httr POST user_agent accept_json http_type content http_error
+#' @importFrom httr POST user_agent accept_json http_type content http_error status_code
 NULL
 
 #' Send a POST request to the Google Cloud Natural Language API and retrieve the results
