@@ -2,7 +2,7 @@
 % Please edit documentation in R/request.R
 \name{gcnlp_post}
 \alias{gcnlp_post}
-\title{Send a POST request to the Google Cloud Natural Language API and retrieve the results}
+\title{Send a POST request to the Google Cloud Natural Language API}
 \usage{
 gcnlp_post(api_key = gcnlp_key(), text_body, extract_syntax = TRUE,
   extract_entities = TRUE, extract_document_sentiment = TRUE)
@@ -19,15 +19,15 @@ gcnlp_post(api_key = gcnlp_key(), text_body, extract_syntax = TRUE,
 \item{extract_document_sentiment}{Behavior for the analyzeSentiment method. Defaults to \code{TRUE}. See \href{https://cloud.google.com/natural-language/reference/rest/v1/documents/analyzeSentiment}{the API documentation} for more information.}
 }
 \value{
-TODO: RETURN VALUE
+A list containing two elements: [1] \code{content} includes the parsed response, and contains the \code{sentences}, \code{tokens}, \code{entities}, \code{documentSentiment}, \code{language} results specified in the request. [2] \code{raw_response} contains the raw response from the API.
 }
 \description{
-TODO: Description
+Send a POST request to the Google Cloud Natural Language API and retrieve the results.
 }
 \examples{
 gcnlp_post(api_key = gcnlp_key(),
            text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
-                       Sundar Pichai said in his keynote that users love their new Android phones.",
+                        Sundar Pichai said in his keynote that users love their new Android phones.",
            extract_syntax = TRUE,
            extract_entities = TRUE,
            extract_document_sentiment = TRUE)
