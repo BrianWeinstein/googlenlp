@@ -13,21 +13,21 @@ NULL
 #' @param extract_document_sentiment Behavior for the analyzeSentiment method. Defaults to \code{TRUE}. See \href{https://cloud.google.com/natural-language/reference/rest/v1/documents/analyzeSentiment}{the API documentation} for more information.
 #'
 #' @examples
-#' annotate_text(api_key = gcnlp_key(),
-#'               text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
-#'                            Sundar Pichai said in his keynote that users love their new Android phones.",
-#'               extract_syntax = TRUE,
-#'               extract_entities = TRUE,
-#'               extract_document_sentiment = TRUE)
+#' gcnlp_post(api_key = gcnlp_key(),
+#'            text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
+#'                        Sundar Pichai said in his keynote that users love their new Android phones.",
+#'            extract_syntax = TRUE,
+#'            extract_entities = TRUE,
+#'            extract_document_sentiment = TRUE)
 #' @return
-#' None
+#' TODO: RETURN VALUE
 #'
 #' @export
-annotate_text <- function(api_key = gcnlp_key(),
-                          text_body,
-                          extract_syntax = TRUE,
-                          extract_entities = TRUE,
-                          extract_document_sentiment = TRUE) {
+gcnlp_post <- function(api_key = gcnlp_key(),
+                       text_body,
+                       extract_syntax = TRUE,
+                       extract_entities = TRUE,
+                       extract_document_sentiment = TRUE) {
   
   url <- paste0("https://language.googleapis.com/v1/documents:annotateText/?key=", api_key)
   
