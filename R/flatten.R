@@ -31,6 +31,8 @@ flatten_sentences <- function(sentences_list){
   }
   
   map_df(sentences_list, flatten_df) %>%
+    mutate(magnitude = as.numeric(ifelse("magnitude" %in% colnames(.), magnitude, NA)),
+           score = as.numeric(ifelse("score" %in% colnames(.), score, NA))) %>%
     select(content, beginOffset, magnitude, score)
   
 }
