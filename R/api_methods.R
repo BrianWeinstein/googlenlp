@@ -36,7 +36,7 @@ annotate_text <- function(text_body, flatten = TRUE) {
       sentences = flatten_sentences(content$sentences),
       tokens = flatten_tokens(content$tokens),
       entities = flatten_entities(content$entities),
-      sentiment = flatten_sentiment(content$sentiment),
+      documentSentiment = flatten_sentiment(content$documentSentiment),
       language = content$language
     )
   } else {
@@ -44,7 +44,7 @@ annotate_text <- function(text_body, flatten = TRUE) {
       sentences = content$sentences,
       tokens = content$tokens,
       entities = content$entities,
-      sentiment = content$sentiment,
+      documentSentiment = content$documentSentiment,
       language = content$language
     )
   }
