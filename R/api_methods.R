@@ -172,14 +172,14 @@ analyze_sentiment <- function(text_body, flatten = TRUE) {
   if (flatten == TRUE) {
     list(
       documentSentiment = flatten_sentiment(content$documentSentiment),
-      language = content$language,
-      sentences = flatten_sentences(content$sentences)
+      sentences = flatten_sentences(content$sentences),
+      language = content$language
     )
   } else {
     list(
       documentSentiment = content$documentSentiment,
-      language = content$language,
-      sentences = content$sentences
+      sentences = content$sentences,
+      language = content$language
     )
   }
   
