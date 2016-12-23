@@ -128,7 +128,7 @@ analyze_entities <- function(text_body, flatten = TRUE) {
   
   if (flatten == TRUE) {
     list(
-      entities = flatten_sentences(content$entities),
+      entities = flatten_entities(content$entities),
       language = content$language
     )
   } else {
