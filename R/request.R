@@ -1,5 +1,6 @@
 
 #' @importFrom httr POST user_agent accept_json http_type content http_error status_code
+#' @importFrom jsonlite fromJSON
 NULL
 
 #' Send a POST request to the Google Cloud Natural Language API
