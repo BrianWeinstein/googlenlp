@@ -1,6 +1,6 @@
 
 #' @importFrom purrr map_df flatten_df
-#' @importFrom dplyr select mutate %>%
+#' @importFrom dplyr select mutate rowwise %>%
 NULL
 
 
