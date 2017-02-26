@@ -4,9 +4,7 @@ Title: An Interface to Google's Cloud Natural Language API
 Description: Interact with Google's Cloud Natural Language API (https://
     cloud.google.com/natural-language/) (v1) via R.
 Version: 0.1.0.9000
-Author@R: person("Brian", "Weinstien", , "bweinstein02@gmail.com", c("aut",
-    "cre"))
-Maintainer@R: person("Brian", "Weinstien", , "bweinstein02@gmail.com", c("aut",
+Authors@R: person("Brian", "Weinstien", , "bweinstein02@gmail.com", c("aut",
     "cre"))
 License: MIT
 LazyData: TRUE
