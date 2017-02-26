@@ -6,7 +6,7 @@ Description: Interact with Google's Cloud Natural Language API (https://
 Version: 0.1.0.9000
 Authors@R: person("Brian", "Weinstien", , "bweinstein02@gmail.com", c("aut",
     "cre"))
-License: MIT
+License: MIT + file LICENSE
 LazyData: TRUE
 Imports:
     dplyr,
