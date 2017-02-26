@@ -3,5 +3,6 @@
 .RData
 .Ruserdata
 .Rapp.history
+api_key.txt
 testing.R
 testing.RData
