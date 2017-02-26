@@ -1,5 +1,5 @@
 
-path <- "/tests/testthat/api_key.txt"
+path <- "api_key.txt"
 has_auth <- file.exists(path)
 
 if (has_auth) {
