@@ -21,11 +21,13 @@ Send a request, and retrive the \code{documentSentiment} and \code{language} res
 This function retrieves the results from the \href{https://cloud.google.com/natural-language/reference/rest/v1/documents/analyzeSentiment}{analyzeSentiment} method.
 }
 \examples{
+\dontrun{
 sample_sentiment <- analyze_sentiment(text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
                                                    Sundar Pichai said in his keynote that users love their new Android phones.",
                                       flatten = TRUE)
 sample_sentiment$documentSentiment
 sample_sentiment$language
+}
 
 }
 

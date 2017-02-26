@@ -21,12 +21,14 @@ Send a request, and retrive the \code{sentences}, \code{tokens}, and \code{langu
 This function retrieves the results from the \href{https://cloud.google.com/natural-language/reference/rest/v1/documents/analyzeSyntax}{analyzeSyntax} method.
 }
 \examples{
+\dontrun{
 sample_syntax <- analyze_syntax(text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
                                              Sundar Pichai said in his keynote that users love their new Android phones.",
                                 flatten = TRUE)
 sample_syntax$sentences
 sample_syntax$tokens
 sample_syntax$language
+}
 
 }
 

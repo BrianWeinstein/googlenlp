@@ -16,6 +16,7 @@ A flattened data frame.
 Convert the JSON/list \code{sentiment} response into a flattened data frame.
 }
 \examples{
+\dontrun{
 sample_post <- gcnlp_post(text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
                                        Sundar Pichai said in his keynote that users love their new Android phones.",
                           extract_syntax = TRUE,
@@ -23,6 +24,7 @@ sample_post <- gcnlp_post(text_body = "Google, headquartered in Mountain View, u
                           extract_document_sentiment = TRUE)
 
 flatten_sentiment(sentiment_list = sample_post$content$sentiment)
+}
 
 }
 

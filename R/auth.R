@@ -9,7 +9,9 @@ gcnlp_env <- new.env(parent = emptyenv())
 #' @param api_key Your API key, from \url{https://console.cloud.google.com/apis/credentials}
 #'
 #' @examples
+#' \dontrun{
 #' set_api_key("YOUR_API_KEY")
+#' }
 #'
 #' @return
 #' None
@@ -29,7 +31,9 @@ set_api_key <- function(api_key) {
 #' Retrieve API key
 #'
 #' @examples
+#' \dontrun{
 #' gcnlp_key()
+#' }
 #'
 #' @return
 #' Your API key
@@ -42,7 +46,7 @@ gcnlp_key <- function() {
     stop("Please define your API key with set_api_key('YOUR_API_KEY')",
          call. = FALSE)
   }
-  
+
   key
 
 }

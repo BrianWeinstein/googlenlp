@@ -16,7 +16,9 @@ None
 Define an API key
 }
 \examples{
+\dontrun{
 set_api_key("YOUR_API_KEY")
+}
 
 }
 

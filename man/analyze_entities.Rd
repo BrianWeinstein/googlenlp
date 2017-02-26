@@ -21,11 +21,13 @@ Send a request, and retrive the \code{entities} and \code{language} responses.
 This function retrieves the results from the \href{https://cloud.google.com/natural-language/reference/rest/v1/documents/analyzeEntities}{analyzeEntities} method.
 }
 \examples{
+\dontrun{
 sample_entities <- analyze_entities(text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
                                                  Sundar Pichai said in his keynote that users love their new Android phones.",
                                     flatten = TRUE)
 sample_entities$entities
 sample_entities$language
+}
 
 }
 

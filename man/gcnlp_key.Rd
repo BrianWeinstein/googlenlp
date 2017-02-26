@@ -13,7 +13,9 @@ Your API key
 Retrieve API key
 }
 \examples{
+\dontrun{
 gcnlp_key()
+}
 
 }
 
