@@ -1,0 +1,121 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+---
+
+googlenlp
+---
+
+The googlenlp package provides an R interface to Google's [Cloud Natural Language API](https://cloud.google.com/natural-language/).
+
+
+### Installation
+
+You can install the development version from GitHub:
+
+```{r eval = FALSE}
+devtools::install_github("BrianWeinstein/googlenlp")
+```
+
+
+### Authentication
+
+To use the API, you'll first need to [create a Google Cloud project and enable billing](https://cloud.google.com/natural-language/docs/getting-started), and get an [API key](https://cloud.google.com/natural-language/docs/common/auth).
+
+
+### Natural language basics
+
+[Natural language basics](https://cloud.google.com/natural-language/docs/basics)
+
+### Getting started
+
+Load the package and set your API key.
+```{r eval = FALSE}
+library(googlenlp)
+
+set_api_key("MY_API_KEY") # replace this with your API key
+```
+
+```{r eval = TRUE, include = FALSE}
+library(googlenlp)
+library(dplyr)
+set_api_key(readLines("tests/testthat/api_key.txt"))
+```
+
+Define the text you'd like to analyze.
+```{r eval = TRUE}
+text <- "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
+         Sundar Pichai said in his keynote that users love their new Android phones."
+```
+
+The `annotate_text` function analyzes the text's syntax (sentences and tokens), entities, sentiment, and language.
+
+```{r eval = TRUE}
+analyzed <- annotate_text(text_body = text)
+```
+
+```{r eval = TRUE}
+str(analyzed, max.level = 1)
+```
+
+#### Sentences
+
+```{r eval = FALSE}
+analyzed$sentences
+```
+```{r eval = TRUE, echo = FALSE}
+knitr::kable(analyzed$sentences, format = "markdown")
+```
+
+
+#### Tokens
+
+```{r eval = FALSE}
+analyzed$tokens
+```
+```{r eval = TRUE, echo = FALSE}
+knitr::kable(analyzed$tokens, format = "markdown")
+```
+<!---
+```{r eval = TRUE, echo = FALSE}
+options(width=400)
+analyzed$tokens
+```
+--->
+
+#### Entities
+
+```{r eval = FALSE}
+analyzed$entities
+```
+```{r eval = TRUE, echo = FALSE}
+knitr::kable(analyzed$entities, format = "markdown")
+```
+
+
+#### Document sentiment
+
+```{r eval = FALSE}
+analyzed$documentSentiment
+```
+```{r eval = TRUE, echo = FALSE}
+knitr::kable(analyzed$documentSentiment, format = "markdown")
+```
+
+
+#### Language
+
+```{r eval = TRUE}
+analyzed$language
+```
