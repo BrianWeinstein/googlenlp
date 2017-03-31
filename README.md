@@ -14,7 +14,7 @@ The googlenlp package provides an R interface to Google's [Cloud Natural Languag
 There are four main features of the API, all of which are available through this R package \[[source](https://cloud.google.com/natural-language/)\]:
 
 -   **Syntax Analysis:** "Extract tokens and sentences, identify parts of speech (PoS) and create dependency parse trees for each sentence."
--   **Entity Analysis:** "Identify entities and label by types such as person, organization, location, events, products and media.""
+-   **Entity Analysis:** "Identify entities and label by types such as person, organization, location, events, products and media."
 -   **Sentiment Analysis:** "Understand the overall sentiment expressed in a block of text."
 -   **Multi-Language:** "Enables you to easily analyze text in multiple languages including English, Spanish and Japanese."
 
@@ -795,7 +795,7 @@ analyzed$tokens
 --->
 #### Entities
 
-"Entity Analysis provides information about entities in the text, which generally refer to named "things" such as famous individuals, landmarks, common objects, etc... A good general practice to follow is that if something is a noun, it qualifies as an 'entity.'" \[[API Documentation](https://cloud.google.com/natural-language/docs/basics#entity_analysis)\]
+"Entity Analysis provides information about entities in the text, which generally refer to named 'things' such as famous individuals, landmarks, common objects, etc... A good general practice to follow is that if something is a noun, it qualifies as an 'entity.'" \[[API Documentation](https://cloud.google.com/natural-language/docs/basics#entity_analysis)\]
 
 -   `entity_type` indicates the type of entity (i.e., it classifies the entity as a person, location, consumer good, etc.).
 -   `mid` provides a "machine-generated identifier" correspoding to the entity's [Google Knowledge Graph](https://www.google.com/intl/bn/insidesearch/features/search/knowledge.html) entry.
