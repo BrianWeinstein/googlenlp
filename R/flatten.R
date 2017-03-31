@@ -1,6 +1,6 @@
 
 #' @importFrom purrr map_df flatten_df
-#' @importFrom dplyr select mutate rowwise %>%
+#' @importFrom dplyr select mutate rowwise %>% ungroup
 NULL
 
 
@@ -36,7 +36,8 @@ flatten_sentences <- function(sentences_list){
     rowwise() %>%
     mutate(magnitude = as.numeric(ifelse("magnitude" %in% colnames(.), magnitude, NA)),
            score = as.numeric(ifelse("score" %in% colnames(.), score, NA))) %>%
-    select(content, beginOffset, magnitude, score)
+    select(content, beginOffset, magnitude, score) %>%
+    ungroup()
 
 }
 
@@ -74,7 +75,8 @@ flatten_tokens <- function(tokens_list){
            tag, aspect, case, form, gender, mood, number,
            person, proper, reciprocity, tense, voice,
            dependencyEdge_headTokenIndex = headTokenIndex,
-           dependencyEdge_label = label)
+           dependencyEdge_label = label) %>%
+    ungroup()
 
 }
 
@@ -137,7 +139,8 @@ flatten_entities <- function(entities_list){
                     wikipedia_url = df1$wikipedia_url,
                     salience = df1$salience) %>%
              select(name, entity_type, mid, wikipedia_url, salience,
-                    content, beginOffset, mentions_type)
+                    content, beginOffset, mentions_type) %>%
+             ungroup()
 
          }
   )
@@ -174,6 +177,7 @@ flatten_sentiment <- function(sentiment_list){
   }
 
   as.data.frame(sentiment_list) %>%
-    select(magnitude, score)
+    select(magnitude, score) %>%
+    ungroup()
 
 }
