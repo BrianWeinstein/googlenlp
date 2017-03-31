@@ -1,13 +1,22 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+googlenlp
+---------
+
 [![Travis-CI Build Status](https://travis-ci.org/BrianWeinstein/googlenlp.svg?branch=master)](https://travis-ci.org/BrianWeinstein/googlenlp)
 
 ------------------------------------------------------------------------
 
-googlenlp
----------
-
 The googlenlp package provides an R interface to Google's [Cloud Natural Language API](https://cloud.google.com/natural-language/).
+
+"Google Cloud Natural Language API reveals the structure and meaning of text by offering powerful machine learning models in an easy to use REST API. You can use it to **extract information** about people, places, events and much more, mentioned in text documents, news articles or blog posts. You can use it to **understand sentiment** about your product on social media or **parse intent** from customer conversations happening in a call center or a messaging app." \[[source](https://cloud.google.com/natural-language/)\]
+
+There are four main features of the API, all of which are available through this R package \[[source](https://cloud.google.com/natural-language/)\]:
+
+-   **Syntax Analysis:** Extract tokens and sentences, identify parts of speech (PoS) and create dependency parse trees for each sentence.
+-   **Entity Analysis:** Identify entities and label by types such as person, organization, location, events, products and media.
+-   **Sentiment Analysis:** Understand the overall sentiment expressed in a block of text.
+-   **Multi-Language:** Enables you to easily analyze text in multiple languages including English, Spanish and Japanese.
 
 ### Installation
 
@@ -42,13 +51,11 @@ text <- "Google, headquartered in Mountain View, unveiled the new Android phone 
          Sundar Pichai said in his keynote that users love their new Android phones."
 ```
 
-The `annotate_text` function analyzes the text's syntax (sentences and tokens), entities, sentiment, and language.
+The `annotate_text` function analyzes the text's syntax (sentences and tokens), entities, sentiment, and language; and returns the result as a five-element list. By default, each response element is flattened into data frames.
 
 ``` r
 analyzed <- annotate_text(text_body = text)
-```
 
-``` r
 str(analyzed, max.level = 1)
 #> List of 5
 #>  $ sentences        :Classes 'rowwise_df', 'tbl_df', 'tbl' and 'data.frame': 2 obs. of  4 variables:
