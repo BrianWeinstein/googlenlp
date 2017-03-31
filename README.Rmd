@@ -26,12 +26,16 @@ The googlenlp package provides an R interface to Google's [Cloud Natural Languag
 
 There are four main features of the API, all of which are available through this R package [[source](https://cloud.google.com/natural-language/)]:
 
-* **Syntax Analysis:** Extract tokens and sentences, identify parts of speech (PoS) and create dependency parse trees for each sentence.
-* **Entity Analysis:** Identify entities and label by types such as person, organization, location, events, products and media.
-* **Sentiment Analysis:** Understand the overall sentiment expressed in a block of text.
-* **Multi-Language:** Enables you to easily analyze text in multiple languages including English, Spanish and Japanese.
+* **Syntax Analysis:** "Extract tokens and sentences, identify parts of speech (PoS) and create dependency parse trees for each sentence."
+* **Entity Analysis:** "Identify entities and label by types such as person, organization, location, events, products and media.""
+* **Sentiment Analysis:** "Understand the overall sentiment expressed in a block of text."
+* **Multi-Language:** "Enables you to easily analyze text in multiple languages including English, Spanish and Japanese."
 
+### Resources
 
+* [API Documentation](https://cloud.google.com/natural-language/docs/)
+* [Natural Language API Basics](https://cloud.google.com/natural-language/docs/basics)
+* [Morphology & Dependency Trees](https://cloud.google.com/natural-language/docs/morphology)
 
 
 ### Installation
@@ -47,10 +51,6 @@ devtools::install_github("BrianWeinstein/googlenlp")
 
 To use the API, you'll first need to [create a Google Cloud project and enable billing](https://cloud.google.com/natural-language/docs/getting-started), and get an [API key](https://cloud.google.com/natural-language/docs/common/auth).
 
-
-### Natural language basics
-
-[Natural language basics](https://cloud.google.com/natural-language/docs/basics)
 
 ### Getting started
 
@@ -73,7 +73,7 @@ text <- "Google, headquartered in Mountain View, unveiled the new Android phone 
          Sundar Pichai said in his keynote that users love their new Android phones."
 ```
 
-The `annotate_text` function analyzes the text's syntax (sentences and tokens), entities, sentiment, and language; and returns the result as a five-element list. By default, each response element is flattened into data frames.
+The `annotate_text` function analyzes the text's syntax (sentences and tokens), entities, sentiment, and language; and returns the result as a five-element list.
 
 ```{r eval = TRUE}
 analyzed <- annotate_text(text_body = text)
@@ -84,6 +84,11 @@ str(analyzed, max.level = 1)
 
 #### Sentences
 
+"Sentence extraction breaks up the stream of text into a series of sentences." [[API Documentation](https://cloud.google.com/natural-language/docs/basics#sentence-extraction)]
+
+* `beginOffset` indicates the (zero-based) character index of where the sentence begins (wtih UTF-8 encoding).
+* The `magnitude` and `score` fields quantify each sentence's sentiment — see the [Document Sentiment](#document-sentiment) section for more details.
+
 ```{r eval = FALSE}
 analyzed$sentences
 ```
@@ -93,6 +98,13 @@ knitr::kable(analyzed$sentences, format = "markdown")
 
 
 #### Tokens
+
+"Tokenization breaks the stream of text up into a series of tokens, with each token usually corresponding to a single word.
+The Natural Language API then processes the tokens and, using their locations within sentences, adds syntactic information to the tokens." [[API Documentation](https://cloud.google.com/natural-language/docs/basics#tokenization)]
+
+* `lemma` indicates the token's "root" word, and can be useful in standardizing the word within the text.
+* `tag` indicates the token's part of speech.
+* Additional column definitions are outlined [here](https://cloud.google.com/natural-language/docs/basics#tokenization) and [here](https://cloud.google.com/natural-language/docs/morphology#parts_of_speech).
 
 ```{r eval = FALSE}
 analyzed$tokens
@@ -109,6 +121,15 @@ analyzed$tokens
 
 #### Entities
 
+"Entity Analysis provides information about entities in the text, which generally refer to named "things" such as famous individuals, landmarks, common objects, etc... A good general practice to follow is that if something is a noun, it qualifies as an 'entity.'" [[API Documentation](https://cloud.google.com/natural-language/docs/basics#entity_analysis)]
+
+* `entity_type` indicates the type of entity (i.e., it classifies the entity as a person, location, consumer good, etc.).
+* `mid` provides a "machine-generated identifier" correspoding to the entity's [Google Knowledge Graph](https://www.google.com/intl/bn/insidesearch/features/search/knowledge.html) entry.
+* `wikipedia_url` provides the entity's [Wikipedia](https://www.wikipedia.org/) URL.
+* `salience` indicates the entity's importance to the entire text. Scores range from 0.0 (less important) to 1.0 (highly important).
+* Additional column definitions are outlined [here](https://cloud.google.com/natural-language/docs/basics#entity_analysis_response_fields).
+
+
 ```{r eval = FALSE}
 analyzed$entities
 ```
@@ -117,7 +138,15 @@ knitr::kable(analyzed$entities, format = "markdown")
 ```
 
 
-#### Document sentiment
+#### Document sentiment {#document-sentiment}
+
+"Sentiment analysis attempts to determine the overall attitude (positive or negative) expressed within the text. Sentiment is represented by numerical `score` and `magnitude` values." [[API Documentation](https://cloud.google.com/natural-language/docs/basics#sentiment_analysis)]
+
+* `score` ranges from -1.0 (negative) to 1.0 (positive), and indicates to the "overall emotional leaning of the text".
+* `magnitude` "indicates the overall strength of emotion (both positive and negative) within the given text, between 0.0 and +inf. Unlike score, magnitude is not normalized; each expression of emotion within the text (both positive and negative) contributes to the text's magnitude (so longer text blocks may have greater magnitudes)."
+
+A note on how to interpret these sentiment values is posted [here](https://cloud.google.com/natural-language/docs/basics#interpreting_sentiment_analysis_values).
+
 
 ```{r eval = FALSE}
 analyzed$documentSentiment
@@ -128,6 +157,9 @@ knitr::kable(analyzed$documentSentiment, format = "markdown")
 
 
 #### Language
+
+`language` indicates the detected language of the document. Only English ("en"), Spanish ("es") and Japanese ("ja") are currently supported by the API.
+
 
 ```{r eval = TRUE}
 analyzed$language
