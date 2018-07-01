@@ -13,7 +13,7 @@ set_api_key(api_key)
 None
 }
 \description{
-Define an API key
+Manually define an API key. Only use this function if you haven't run \code{configure_googlenlp()}
 }
 \examples{
 \dontrun{
@@ -21,4 +21,3 @@ set_api_key("YOUR_API_KEY")
 }
 
 }
-
