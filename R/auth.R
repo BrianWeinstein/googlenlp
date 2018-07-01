@@ -1,5 +1,9 @@
 
+# Set default values for googlenlp configuration
 gcnlp_env <- new.env(parent = emptyenv())
+gcnlp_env$config_file <- "~/.Renviron"
+
+
 
 
 #' Set access credentials
