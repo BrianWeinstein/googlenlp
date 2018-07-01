@@ -27,4 +27,3 @@ flatten_tokens(tokens_list = sample_post$content$tokens)
 }
 
 }
-

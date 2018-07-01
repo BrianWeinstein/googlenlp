@@ -27,4 +27,3 @@ flatten_sentences(sentences_list = sample_post$content$sentences)
 }
 
 }
-

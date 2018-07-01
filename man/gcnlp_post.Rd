@@ -32,4 +32,3 @@ gcnlp_post(text_body = "Google, headquartered in Mountain View, unveiled the new
 }
 
 }
-

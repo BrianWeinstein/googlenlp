@@ -27,4 +27,3 @@ flatten_entities(entities_list = sample_post$content$entities)
 }
 
 }
-
