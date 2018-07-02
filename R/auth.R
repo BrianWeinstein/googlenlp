@@ -121,18 +121,29 @@ gcnlp_key <- function() {
   config_file <- get_config_file()
 
   # Fetch the API key from your .Renviron file
-  key <- Sys.getenv("GOOGLE_NLP_API_KEY")
+  key_renviron <- Sys.getenv("GOOGLE_NLP_API_KEY")
+  key_renviron_exists <- (!identical(key_renviron, "") & !is.null(key_renviron))
 
-  if (key == "" | identical(key, "") | is.null(key)) {
+  # Check if the key has been manually set
+  key_manual <- gcnlp_env$GOOGLE_NLP_API_KEY_MANUAL
+  key_manual_exists <- (!identical(key_manual, "") & !is.null(key_manual))
 
-    # If the API key from config_file is blank or NULL, then check if the key has been manually set
-    key <- gcnlp_env$GOOGLE_NLP_API_KEY_MANUAL
+  if (key_renviron_exists & key_manual_exists) {
+    # If they key has been set in multiple places, warn the user and default to the one set in the config_file
+    warning(paste0("API key has been set in multiple places.\n",
+                   "(i.e., you've defined it in both your ", config_file, " file (via the configure_googlenlp() function) and manually (via the set_api_key('YOUR_API_KEY') function).",
+                   "Defaulting to the value stored in your ", config_file, " file."))
 
-  } else if (key == "" | identical(key, "") | is.null(key)) {
+    key <- key_renviron
+  } else if (asdf) {
 
+    # todo
+
+  }
+
+  if (identical(key, "") | is.null(key)) {
     stop("Please define your API key: either by running configure_googlenlp() or with set_api_key('YOUR_API_KEY')",
          call. = FALSE)
-
   }
 
 
