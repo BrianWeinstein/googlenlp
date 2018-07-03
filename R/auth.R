@@ -65,7 +65,7 @@ configure_googlenlp <- function(){
   # print helper instructions to console
   cat("googlenlp setup instructions:\n",
       "1. Your", config_file, "file will now open in a new window/tab.\n",
-      paste0("   *** If it doesn't open, run:    file.edit(\"", config_file, "\") ***\n"),
+      paste0("   *** If it doesn't open, run:  file.edit(\"", config_file, "\") ***\n"),
       "2. To use the API, you'll first need to create a Google Cloud project and enable billing (https://cloud.google.com/natural-language/docs/getting-started).\n",
       "3. Next you'll need to get an API key (https://cloud.google.com/natural-language/docs/common/auth).\n",
       "4. In your ", config_file, " file, replace the ENTER_YOUR_API_KEY_HERE with your Google Cloud API key.\n",
