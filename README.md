@@ -36,15 +36,40 @@ devtools::install_github("BrianWeinstein/googlenlp")
 
 To use the API, you'll first need to [create a Google Cloud project and enable billing](https://cloud.google.com/natural-language/docs/getting-started), and get an [API key](https://cloud.google.com/natural-language/docs/common/auth).
 
-### Getting started
+### Configuration
 
-Load the package and set your API key.
+Load the package and set your API key. There are two ways to do this.
+
+#### Method A (preferred)
+
+Method A (preferred method) adds your API key as a variable to your `.Renviron` file. Under this method, you only need to do this setup process one time.
+
+``` r
+library(googlenlp)
+
+configure_googlenlp() # follow the instructions printed to the console
+```
+
+    googlenlp setup instructions:
+     1. Your ~/.Renviron file will now open in a new window/tab.
+        *** If it doesn't open, run:  file.edit("~/.Renviron") ***
+     2. To use the API, you'll first need to create a Google Cloud project and enable billing (https://cloud.google.com/natural-language/docs/getting-started).
+     3. Next you'll need to get an API key (https://cloud.google.com/natural-language/docs/common/auth).
+     4. In your  ~/.Renviron  file, replace the ENTER_YOUR_API_KEY_HERE with your Google Cloud API key.
+     5. Save your ~/.Renviron file.
+     6. *** Restart your R session for changes to take effect. ***
+
+#### Method B
+
+Method B defines your API key as a session-level variable. Under this method, you'll need to set your API key at the beginning of each R session.
 
 ``` r
 library(googlenlp)
 
 set_api_key("MY_API_KEY") # replace this with your API key
 ```
+
+### Getting started
 
 Define the text you'd like to analyze.
 
@@ -60,7 +85,7 @@ analyzed <- annotate_text(text_body = text)
 
 str(analyzed, max.level = 1)
 #> List of 5
-#>  $ sentences        :Classes 'rowwise_df', 'tbl_df', 'tbl' and 'data.frame': 2 obs. of  4 variables:
+#>  $ sentences        :Classes 'tbl_df', 'tbl' and 'data.frame':   2 obs. of  4 variables:
 #>  $ tokens           :Classes 'tbl_df', 'tbl' and 'data.frame':   32 obs. of  17 variables:
 #>  $ entities         :Classes 'tbl_df', 'tbl' and 'data.frame':   10 obs. of  8 variables:
 #>  $ documentSentiment:'data.frame':   1 obs. of  2 variables:
@@ -97,8 +122,8 @@ analyzed$sentences
 <tr class="odd">
 <td align="left">Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.</td>
 <td align="right">0</td>
-<td align="right">0.2</td>
-<td align="right">0.2</td>
+<td align="right">0.0</td>
+<td align="right">0.0</td>
 </tr>
 <tr class="even">
 <td align="left">Sundar Pichai said in his keynote that users love their new Android phones.</td>
@@ -777,18 +802,18 @@ analyzed$tokens
 <!---
 
 ```
-#> # A tibble: 32 × 17
+#> # A tibble: 32 x 17
 #>          content beginOffset       lemma   tag         aspect         case         form         gender         mood         number         person         proper         reciprocity         tense         voice dependencyEdge_headTokenIndex dependencyEdge_label
 #>            <chr>       <int>       <chr> <chr>          <chr>        <chr>        <chr>          <chr>        <chr>          <chr>          <chr>          <chr>               <chr>         <chr>         <chr>                         <int>                <chr>
-#> 1         Google           0      Google  NOUN ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN       SINGULAR PERSON_UNKNOWN         PROPER RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                             7                NSUBJ
-#> 2              ,           6           , PUNCT ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN NUMBER_UNKNOWN PERSON_UNKNOWN PROPER_UNKNOWN RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                             0                    P
-#> 3  headquartered           8 headquarter  VERB ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN NUMBER_UNKNOWN PERSON_UNKNOWN PROPER_UNKNOWN RECIPROCITY_UNKNOWN          PAST VOICE_UNKNOWN                             0                 VMOD
-#> 4             in          22          in   ADP ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN NUMBER_UNKNOWN PERSON_UNKNOWN PROPER_UNKNOWN RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                             2                 PREP
-#> 5       Mountain          25    Mountain  NOUN ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN       SINGULAR PERSON_UNKNOWN         PROPER RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                             5                   NN
-#> 6           View          34        View  NOUN ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN       SINGULAR PERSON_UNKNOWN         PROPER RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                             3                 POBJ
-#> 7              ,          38           , PUNCT ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN NUMBER_UNKNOWN PERSON_UNKNOWN PROPER_UNKNOWN RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                             0                    P
-#> 8       unveiled          40      unveil  VERB ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN   INDICATIVE NUMBER_UNKNOWN PERSON_UNKNOWN PROPER_UNKNOWN RECIPROCITY_UNKNOWN          PAST VOICE_UNKNOWN                             7                 ROOT
-#> 9            the          49         the   DET ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN NUMBER_UNKNOWN PERSON_UNKNOWN PROPER_UNKNOWN RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                            11                  DET
+#>  1        Google           0      Google  NOUN ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN       SINGULAR PERSON_UNKNOWN         PROPER RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                             7                NSUBJ
+#>  2             ,           6           , PUNCT ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN NUMBER_UNKNOWN PERSON_UNKNOWN PROPER_UNKNOWN RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                             0                    P
+#>  3 headquartered           8 headquarter  VERB ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN NUMBER_UNKNOWN PERSON_UNKNOWN PROPER_UNKNOWN RECIPROCITY_UNKNOWN          PAST VOICE_UNKNOWN                             0                 VMOD
+#>  4            in          22          in   ADP ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN NUMBER_UNKNOWN PERSON_UNKNOWN PROPER_UNKNOWN RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                             2                 PREP
+#>  5      Mountain          25    Mountain  NOUN ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN       SINGULAR PERSON_UNKNOWN         PROPER RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                             5                   NN
+#>  6          View          34        View  NOUN ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN       SINGULAR PERSON_UNKNOWN         PROPER RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                             3                 POBJ
+#>  7             ,          38           , PUNCT ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN NUMBER_UNKNOWN PERSON_UNKNOWN PROPER_UNKNOWN RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                             0                    P
+#>  8      unveiled          40      unveil  VERB ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN   INDICATIVE NUMBER_UNKNOWN PERSON_UNKNOWN PROPER_UNKNOWN RECIPROCITY_UNKNOWN          PAST VOICE_UNKNOWN                             7                 ROOT
+#>  9           the          49         the   DET ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN NUMBER_UNKNOWN PERSON_UNKNOWN PROPER_UNKNOWN RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                            11                  DET
 #> 10           new          53         new   ADJ ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN NUMBER_UNKNOWN PERSON_UNKNOWN PROPER_UNKNOWN RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                            11                 AMOD
 #> # ... with 22 more rows
 ```
@@ -835,58 +860,58 @@ analyzed$entities
 <td align="left">Google</td>
 <td align="left">ORGANIZATION</td>
 <td align="left">/m/045c7b</td>
-<td align="left"><a href="http://en.wikipedia.org/wiki/Google" class="uri">http://en.wikipedia.org/wiki/Google</a></td>
-<td align="right">0.2559538</td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Google" class="uri">https://en.wikipedia.org/wiki/Google</a></td>
+<td align="right">0.2557206</td>
 <td align="left">Google</td>
 <td align="right">0</td>
 <td align="left">PROPER</td>
 </tr>
 <tr class="even">
-<td align="left">phone</td>
-<td align="left">CONSUMER_GOOD</td>
+<td align="left">users</td>
+<td align="left">PERSON</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="right">0.1384906</td>
-<td align="left">phone</td>
-<td align="right">65</td>
+<td align="right">0.1527633</td>
+<td align="left">users</td>
+<td align="right">152</td>
 <td align="left">COMMON</td>
 </tr>
 <tr class="odd">
-<td align="left">Android</td>
+<td align="left">phone</td>
 <td align="left">CONSUMER_GOOD</td>
-<td align="left">/m/02wxtgw</td>
-<td align="left"><a href="http://en.wikipedia.org/wiki/Android_(operating_system)" class="uri">http://en.wikipedia.org/wiki/Android_(operating_system)</a></td>
-<td align="right">0.1294144</td>
-<td align="left">Android</td>
-<td align="right">57</td>
-<td align="left">PROPER</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">0.1311989</td>
+<td align="left">phone</td>
+<td align="right">65</td>
+<td align="left">COMMON</td>
 </tr>
 <tr class="even">
 <td align="left">Android</td>
 <td align="left">CONSUMER_GOOD</td>
 <td align="left">/m/02wxtgw</td>
-<td align="left"><a href="http://en.wikipedia.org/wiki/Android_(operating_system)" class="uri">http://en.wikipedia.org/wiki/Android_(operating_system)</a></td>
-<td align="right">0.1294144</td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Android_(operating_system)" class="uri">https://en.wikipedia.org/wiki/Android_(operating_system)</a></td>
+<td align="right">0.1224526</td>
 <td align="left">Android</td>
-<td align="right">173</td>
+<td align="right">57</td>
 <td align="left">PROPER</td>
 </tr>
 <tr class="odd">
-<td align="left">users</td>
-<td align="left">PERSON</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="right">0.1198345</td>
-<td align="left">users</td>
-<td align="right">152</td>
-<td align="left">COMMON</td>
+<td align="left">Android</td>
+<td align="left">CONSUMER_GOOD</td>
+<td align="left">/m/02wxtgw</td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Android_(operating_system)" class="uri">https://en.wikipedia.org/wiki/Android_(operating_system)</a></td>
+<td align="right">0.1224526</td>
+<td align="left">Android</td>
+<td align="right">173</td>
+<td align="left">PROPER</td>
 </tr>
 <tr class="even">
 <td align="left">Sundar Pichai</td>
 <td align="left">PERSON</td>
 <td align="left">/m/09gds74</td>
-<td align="left"><a href="http://en.wikipedia.org/wiki/Sundar_Pichai" class="uri">http://en.wikipedia.org/wiki/Sundar_Pichai</a></td>
-<td align="right">0.1123451</td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Sundar_Pichai" class="uri">https://en.wikipedia.org/wiki/Sundar_Pichai</a></td>
+<td align="right">0.1141411</td>
 <td align="left">Sundar Pichai</td>
 <td align="right">113</td>
 <td align="left">PROPER</td>
@@ -895,8 +920,8 @@ analyzed$entities
 <td align="left">Mountain View</td>
 <td align="left">LOCATION</td>
 <td align="left">/m/0r6c4</td>
-<td align="left"><a href="http://en.wikipedia.org/wiki/Mountain_View,_California" class="uri">http://en.wikipedia.org/wiki/Mountain_View,_California</a></td>
-<td align="right">0.1103145</td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Mountain_View,_California" class="uri">https://en.wikipedia.org/wiki/Mountain_View,_California</a></td>
+<td align="right">0.1019596</td>
 <td align="left">Mountain View</td>
 <td align="right">25</td>
 <td align="left">PROPER</td>
@@ -905,8 +930,8 @@ analyzed$entities
 <td align="left">Consumer Electronic Show</td>
 <td align="left">EVENT</td>
 <td align="left">/m/01p15w</td>
-<td align="left"><a href="http://en.wikipedia.org/wiki/Consumer_Electronics_Show" class="uri">http://en.wikipedia.org/wiki/Consumer_Electronics_Show</a></td>
-<td align="right">0.0781073</td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Consumer_Electronics_Show" class="uri">https://en.wikipedia.org/wiki/Consumer_Electronics_Show</a></td>
+<td align="right">0.0703438</td>
 <td align="left">Consumer Electronic Show</td>
 <td align="right">78</td>
 <td align="left">PROPER</td>
@@ -916,7 +941,7 @@ analyzed$entities
 <td align="left">CONSUMER_GOOD</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="right">0.0336798</td>
+<td align="right">0.0338317</td>
 <td align="left">phones</td>
 <td align="right">181</td>
 <td align="left">COMMON</td>
@@ -926,7 +951,7 @@ analyzed$entities
 <td align="left">OTHER</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="right">0.0218599</td>
+<td align="right">0.0175884</td>
 <td align="left">keynote</td>
 <td align="right">139</td>
 <td align="left">COMMON</td>
@@ -949,7 +974,7 @@ analyzed$documentSentiment
 
 |  magnitude|  score|
 |----------:|------:|
-|        0.9|    0.4|
+|        0.6|    0.3|
 
 #### Language
 

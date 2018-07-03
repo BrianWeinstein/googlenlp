@@ -2,7 +2,7 @@
 % Please edit documentation in R/auth.R
 \name{set_api_key}
 \alias{set_api_key}
-\title{Set access credentials}
+\title{Manually set access credentials}
 \usage{
 set_api_key(api_key)
 }
@@ -13,7 +13,7 @@ set_api_key(api_key)
 None
 }
 \description{
-Define an API key
+Manually define an API key. Only use this function if you haven't run \code{configure_googlenlp()}
 }
 \examples{
 \dontrun{
@@ -21,4 +21,3 @@ set_api_key("YOUR_API_KEY")
 }
 
 }
-

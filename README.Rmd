@@ -52,19 +52,42 @@ devtools::install_github("BrianWeinstein/googlenlp")
 To use the API, you'll first need to [create a Google Cloud project and enable billing](https://cloud.google.com/natural-language/docs/getting-started), and get an [API key](https://cloud.google.com/natural-language/docs/common/auth).
 
 
-### Getting started
+### Configuration
 
-Load the package and set your API key.
+Load the package and set your API key. There are two ways to do this.
+
+#### Method A (preferred)
+Method A (preferred method) adds your API key as a variable to your `.Renviron` file. Under this method, you only need to do this setup process one time.
+```{r eval = FALSE}
+library(googlenlp)
+
+configure_googlenlp() # follow the instructions printed to the console
+```
+```
+googlenlp setup instructions:
+ 1. Your ~/.Renviron file will now open in a new window/tab.
+    *** If it doesn't open, run:  file.edit("~/.Renviron") ***
+ 2. To use the API, you'll first need to create a Google Cloud project and enable billing (https://cloud.google.com/natural-language/docs/getting-started).
+ 3. Next you'll need to get an API key (https://cloud.google.com/natural-language/docs/common/auth).
+ 4. In your  ~/.Renviron  file, replace the ENTER_YOUR_API_KEY_HERE with your Google Cloud API key.
+ 5. Save your ~/.Renviron file.
+ 6. *** Restart your R session for changes to take effect. ***
+```
+
+#### Method B
+Method B defines your API key as a session-level variable. Under this method, you'll need to set your API key at the beginning of each R session.
 ```{r eval = FALSE}
 library(googlenlp)
 
 set_api_key("MY_API_KEY") # replace this with your API key
 ```
 
+
+### Getting started
+
 ```{r eval = TRUE, include = FALSE}
-library(googlenlp)
+devtools::load_all("~/Documents/googlenlp")
 library(dplyr)
-set_api_key(readLines("tests/testthat/api_key.txt"))
 ```
 
 Define the text you'd like to analyze.

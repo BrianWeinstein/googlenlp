@@ -27,4 +27,3 @@ flatten_sentiment(sentiment_list = sample_post$content$sentiment)
 }
 
 }
-
