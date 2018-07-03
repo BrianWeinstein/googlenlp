@@ -16,8 +16,6 @@ gcnlp_env$config_file <- "~/.Renviron"
 #'
 #' \code{get_config_file()} gets the value of \code{config_file}
 #'
-#' @param None
-#'
 #' @return
 #' The path to the user's \code{config_file}
 #'
@@ -42,8 +40,6 @@ get_config_file <- function() {
 #' Configure your computer or a server to connect to the Google Cloud Natural Language API via R functions
 #'
 #' Creates variables in your .Renviron file for use by other googlenlp functions
-#'
-#' @param config_file a string pointing to your config file
 #'
 #' @return None
 #'

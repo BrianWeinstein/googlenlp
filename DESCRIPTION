@@ -12,6 +12,7 @@ Imports:
     dplyr,
     httr,
     jsonlite,
-    purrr
+    purrr,
+    readr
 RoxygenNote: 6.0.1
 Suggests: testthat

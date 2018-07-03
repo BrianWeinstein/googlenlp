@@ -6,9 +6,6 @@
 \usage{
 configure_googlenlp()
 }
-\arguments{
-\item{config_file}{a string pointing to your config file}
-}
 \value{
 None
 }

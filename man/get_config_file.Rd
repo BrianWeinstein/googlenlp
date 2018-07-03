@@ -6,9 +6,6 @@
 \usage{
 get_config_file()
 }
-\arguments{
-\item{None}{}
-}
 \value{
 The path to the user's \code{config_file}
 }
