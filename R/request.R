@@ -14,8 +14,10 @@ NULL
 #'
 #' @examples
 #' \dontrun{
-#' gcnlp_post(text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
-#'                         Sundar Pichai said in his keynote that users love their new Android phones.",
+#' gcnlp_post(text_body = "Google, headquartered in Mountain View, unveiled
+#'                                        the new Android phone at the Consumer Electronic Show.
+#'                                        Sundar Pichai said in his keynote that users love
+#'                                        their new Android phones.",
 #'            extract_syntax = TRUE,
 #'            extract_entities = TRUE,
 #'            extract_document_sentiment = TRUE)

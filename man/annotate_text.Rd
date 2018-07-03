@@ -22,8 +22,10 @@ This function calls the \href{https://cloud.google.com/natural-language/referenc
 }
 \examples{
 \dontrun{
-sample_annotate <- annotate_text(text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
-                                              Sundar Pichai said in his keynote that users love their new Android phones.",
+sample_annotate <- annotate_text(text_body = "Google, headquartered in Mountain View, unveiled
+                                       the new Android phone at the Consumer Electronic Show.
+                                       Sundar Pichai said in his keynote that users love
+                                       their new Android phones.",
                                  flatten = TRUE)
 sample_annotate$sentences
 sample_annotate$tokens

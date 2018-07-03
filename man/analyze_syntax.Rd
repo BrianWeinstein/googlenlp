@@ -22,8 +22,10 @@ This function retrieves the results from the \href{https://cloud.google.com/natu
 }
 \examples{
 \dontrun{
-sample_syntax <- analyze_syntax(text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
-                                             Sundar Pichai said in his keynote that users love their new Android phones.",
+sample_syntax <- analyze_syntax(text_body = "Google, headquartered in Mountain View, unveiled
+                                       the new Android phone at the Consumer Electronic Show.
+                                       Sundar Pichai said in his keynote that users love
+                                       their new Android phones.",
                                 flatten = TRUE)
 sample_syntax$sentences
 sample_syntax$tokens

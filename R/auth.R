@@ -1,5 +1,6 @@
 
 #' @importFrom readr write_file
+#' @importFrom utils file.edit
 NULL
 
 

@@ -3,3 +3,6 @@
 ^\.travis\.yml$
 ^README\.Rmd$
 ^README-.*\.png$
+^cran-comments\.md$
+^tests_archive/tests.*$
+^dev\.R$

@@ -12,8 +12,10 @@ NULL
 #'
 #' @examples
 #' \dontrun{
-#' sample_post <- gcnlp_post(text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
-#'                                        Sundar Pichai said in his keynote that users love their new Android phones.",
+#' sample_post <- gcnlp_post(text_body = "Google, headquartered in Mountain View, unveiled
+#'                                        the new Android phone at the Consumer Electronic Show.
+#'                                        Sundar Pichai said in his keynote that users love
+#'                                        their new Android phones.",
 #'                           extract_syntax = TRUE,
 #'                           extract_entities = TRUE,
 #'                           extract_document_sentiment = TRUE)
@@ -50,8 +52,10 @@ flatten_sentences <- function(sentences_list){
 #'
 #' @examples
 #' \dontrun{
-#' sample_post <- gcnlp_post(text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
-#'                                        Sundar Pichai said in his keynote that users love their new Android phones.",
+#' sample_post <- gcnlp_post(text_body = "Google, headquartered in Mountain View, unveiled
+#'                                        the new Android phone at the Consumer Electronic Show.
+#'                                        Sundar Pichai said in his keynote that users love
+#'                                        their new Android phones.",
 #'                           extract_syntax = TRUE,
 #'                           extract_entities = TRUE,
 #'                           extract_document_sentiment = TRUE)
@@ -89,8 +93,10 @@ flatten_tokens <- function(tokens_list){
 #'
 #' @examples
 #' \dontrun{
-#' sample_post <- gcnlp_post(text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
-#'                                        Sundar Pichai said in his keynote that users love their new Android phones.",
+#' sample_post <- gcnlp_post(text_body = "Google, headquartered in Mountain View, unveiled
+#'                                        the new Android phone at the Consumer Electronic Show.
+#'                                        Sundar Pichai said in his keynote that users love
+#'                                        their new Android phones.",
 #'                           extract_syntax = TRUE,
 #'                           extract_entities = TRUE,
 #'                           extract_document_sentiment = TRUE)
@@ -156,8 +162,10 @@ flatten_entities <- function(entities_list){
 #'
 #' @examples
 #' \dontrun{
-#' sample_post <- gcnlp_post(text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
-#'                                        Sundar Pichai said in his keynote that users love their new Android phones.",
+#' sample_post <- gcnlp_post(text_body = "Google, headquartered in Mountain View, unveiled
+#'                                        the new Android phone at the Consumer Electronic Show.
+#'                                        Sundar Pichai said in his keynote that users love
+#'                                        their new Android phones.",
 #'                           extract_syntax = TRUE,
 #'                           extract_entities = TRUE,
 #'                           extract_document_sentiment = TRUE)

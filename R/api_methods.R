@@ -9,8 +9,10 @@
 #'
 #' @examples
 #' \dontrun{
-#' sample_annotate <- annotate_text(text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
-#'                                               Sundar Pichai said in his keynote that users love their new Android phones.",
+#' sample_annotate <- annotate_text(text_body = "Google, headquartered in Mountain View, unveiled
+#'                                        the new Android phone at the Consumer Electronic Show.
+#'                                        Sundar Pichai said in his keynote that users love
+#'                                        their new Android phones.",
 #'                                  flatten = TRUE)
 #' sample_annotate$sentences
 #' sample_annotate$tokens
@@ -63,8 +65,10 @@ annotate_text <- function(text_body, flatten = TRUE) {
 #'
 #' @examples
 #' \dontrun{
-#' sample_syntax <- analyze_syntax(text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
-#'                                              Sundar Pichai said in his keynote that users love their new Android phones.",
+#' sample_syntax <- analyze_syntax(text_body = "Google, headquartered in Mountain View, unveiled
+#'                                        the new Android phone at the Consumer Electronic Show.
+#'                                        Sundar Pichai said in his keynote that users love
+#'                                        their new Android phones.",
 #'                                 flatten = TRUE)
 #' sample_syntax$sentences
 #' sample_syntax$tokens
@@ -111,8 +115,10 @@ analyze_syntax <- function(text_body, flatten = TRUE) {
 #'
 #' @examples
 #' \dontrun{
-#' sample_entities <- analyze_entities(text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
-#'                                                  Sundar Pichai said in his keynote that users love their new Android phones.",
+#' sample_entities <- analyze_entities(text_body = "Google, headquartered in Mountain View, unveiled
+#'                                        the new Android phone at the Consumer Electronic Show.
+#'                                        Sundar Pichai said in his keynote that users love
+#'                                        their new Android phones.",
 #'                                     flatten = TRUE)
 #' sample_entities$entities
 #' sample_entities$language
@@ -156,8 +162,10 @@ analyze_entities <- function(text_body, flatten = TRUE) {
 #'
 #' @examples
 #' \dontrun{
-#' sample_sentiment <- analyze_sentiment(text_body = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.
-#'                                                    Sundar Pichai said in his keynote that users love their new Android phones.",
+#' sample_sentiment <- analyze_sentiment(text_body = "Google, headquartered in Mountain View, unveiled
+#'                                        the new Android phone at the Consumer Electronic Show.
+#'                                        Sundar Pichai said in his keynote that users love
+#'                                        their new Android phones.",
 #'                                       flatten = TRUE)
 #' sample_sentiment$documentSentiment
 #' sample_sentiment$language
