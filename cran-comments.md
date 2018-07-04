@@ -1,6 +1,8 @@
 ## Resubmission
 This is a resubmission. In this version I have:
 
+* Updated the LICENSE file to match CRAN format specifications.
+
 * Added angle brackets around the link in the DESCRIPTION file.
 
 * Made it clearer that the user's .Renviron file will only be
