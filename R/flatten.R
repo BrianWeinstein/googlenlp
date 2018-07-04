@@ -1,6 +1,7 @@
 
 #' @importFrom purrr map_df flatten_df
 #' @importFrom dplyr select mutate rowwise %>% ungroup
+#' @importFrom rlang .data
 NULL
 
 
@@ -34,11 +35,17 @@ flatten_sentences <- function(sentences_list){
     stop("API did not return any sentences. There is nothing to flatten.", call. = TRUE)
   }
 
-  map_df(sentences_list, flatten_df) %>%
-    rowwise() %>%
-    mutate(magnitude = as.numeric(ifelse("magnitude" %in% colnames(.), magnitude, NA)),
-           score = as.numeric(ifelse("score" %in% colnames(.), score, NA))) %>%
-    select(content, beginOffset, magnitude, score) %>%
+  df1 <- map_df(sentences_list, flatten_df) %>%
+    rowwise()
+
+  # check if the dataframe contains the "magnitude" and "score" columns
+  magnitude_in_df1 <- "magnitude" %in% colnames(df1)
+  score_in_df1 <- "score" %in% colnames(df1)
+
+  df1 <- df1 %>%
+    mutate(magnitude = as.numeric(ifelse(magnitude_in_df1, .data$magnitude, NA)),
+           score = as.numeric(ifelse(score_in_df1, .data$score, NA))) %>%
+    select(.data$content, .data$beginOffset, .data$magnitude, .data$score) %>%
     ungroup()
 
 }
@@ -75,11 +82,11 @@ flatten_tokens <- function(tokens_list){
   }
 
   map_df(tokens_list, flatten_df) %>%
-    select(content, beginOffset, lemma,
-           tag, aspect, case, form, gender, mood, number,
-           person, proper, reciprocity, tense, voice,
-           dependencyEdge_headTokenIndex = headTokenIndex,
-           dependencyEdge_label = label) %>%
+    select(.data$content, .data$beginOffset, .data$lemma,
+           .data$tag, .data$aspect, .data$case, .data$form, .data$gender, .data$mood, .data$number,
+           .data$person, .data$proper, .data$reciprocity, .data$tense, .data$voice,
+           dependencyEdge_headTokenIndex = .data$headTokenIndex,
+           dependencyEdge_label = .data$label) %>%
     ungroup()
 
 }
@@ -118,14 +125,21 @@ flatten_entities <- function(entities_list){
   map_df(entities_list,
          function(element){
 
-           # extract 1:1 fields
-           df1 <- flatten_df(element[c("name", "type", "metadata", "salience")]) %>%
-             mutate(mid = as.character(ifelse("mid" %in% colnames(.), mid, NA)),
-                    wikipedia_url = as.character(ifelse("wikipedia_url" %in% colnames(.),wikipedia_url, NA)))
-           df1 <- df1 %>%
-             select(name, entity_type = type, mid, wikipedia_url, salience)
+           ### extract 1:1 fields
+           df1 <- flatten_df(element[c("name", "type", "metadata", "salience")])
 
-           # extract 1:many fields
+           # check if the dataframe contains the "mid" and "wikipedia_url" columns
+           mid_in_df1 <- "mid" %in% colnames(df1)
+           wikipedia_url_in_df1 <- "wikipedia_url" %in% colnames(df1)
+
+           # create "mid" and "wikipedia_url" columns; reorder columns
+           df1 <- df1 %>%
+             mutate(mid = as.character(ifelse(mid_in_df1, .data$mid, NA)),
+                    wikipedia_url = as.character(ifelse(wikipedia_url_in_df1, .data$wikipedia_url, NA)))
+           df1 <- df1 %>%
+             select(.data$name, entity_type = .data$type, .data$mid, .data$wikipedia_url, .data$salience)
+
+           ### extract 1:many fields
            df2 <- map_df(element$mentions,
                          function(inner_element){
 
@@ -135,7 +149,7 @@ flatten_entities <- function(entities_list){
                          }
            )
            df2 <- df2 %>%
-             select(content, beginOffset, mentions_type)
+             select(.data$content, .data$beginOffset, .data$mentions_type)
 
            # combine into one dataframe
            df2 %>%
@@ -144,8 +158,8 @@ flatten_entities <- function(entities_list){
                     mid = df1$mid,
                     wikipedia_url = df1$wikipedia_url,
                     salience = df1$salience) %>%
-             select(name, entity_type, mid, wikipedia_url, salience,
-                    content, beginOffset, mentions_type) %>%
+             select(.data$name, .data$entity_type, .data$mid, .data$wikipedia_url, .data$salience,
+                    .data$content, .data$beginOffset, .data$mentions_type) %>%
              ungroup()
 
          }
@@ -185,7 +199,7 @@ flatten_sentiment <- function(sentiment_list){
   }
 
   as.data.frame(sentiment_list) %>%
-    select(magnitude, score) %>%
+    select(.data$magnitude, .data$score) %>%
     ungroup()
 
 }

@@ -3,7 +3,9 @@ This is a resubmission. In this version I have:
 
 * Updated the LICENSE file to match CRAN format specifications.
 
-* Added angle brackets around the link in the DESCRIPTION file.
+* Fixed NOTEs resulting from the use of non-standard evaluation functions.
+
+* Added angle brackets around the links in the DESCRIPTION file.
 
 * Made it clearer that the user's .Renviron file will only be
   edited if they call the `configure_googlenlp()` function directly.
@@ -17,17 +19,7 @@ This is a resubmission. In this version I have:
 * Ubuntu 14.04.5 (on travis-ci), R 3.5.0
 
 ## R CMD check results
-There were no ERRORs or WARNINGs. 
-
-There was 1 NOTE:
-
-* checking R code for possible problems ... NOTE
-  flatten_entities : <anonymous>: no visible binding for global variable ‘.’
-  flatten_entities : <anonymous>: no visible binding for global variable ‘mid’
-  flatten_entities : <anonymous>: no visible binding for global variable ‘wikipedia_url’
-  ...
-  
-  These are all unquoted field/column names used in the flatten_* functions.
+There were 0 ERRORs, 0 WARNINGs, and 0 NOTEs.
 
 ## Downstream dependencies
 There are currently no downstream dependencies for this package.
