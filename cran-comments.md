@@ -8,6 +8,8 @@ This is a resubmission. In this version I have:
   I also listed out alternative methods of authentication if the
   user prefers not to edit their .Renviron file.
 
+* Added a dontrun wrapper to the `configure_googlenlp()` example.
+
 ## Test environments
 * local OS X install, R 3.4.2
 * Ubuntu 14.04.5 (on travis-ci), R 3.5.0
