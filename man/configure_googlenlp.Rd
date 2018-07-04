@@ -10,7 +10,8 @@ configure_googlenlp()
 None
 }
 \description{
-Creates variables in your .Renviron file for use by other googlenlp functions
+Creates variables in your .Renviron file for use by other googlenlp functions.
+This will edit your .Renviron file only if you call this function directly. If you prefer not to change your .Renviron file, use the \code{set_api_key} function instead.
 }
 \examples{
 configure_googlenlp()

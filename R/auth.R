@@ -40,7 +40,8 @@ get_config_file <- function() {
 
 #' Configure your computer or a server to connect to the Google Cloud Natural Language API via R functions
 #'
-#' Creates variables in your .Renviron file for use by other googlenlp functions
+#' Creates variables in your .Renviron file for use by other googlenlp functions.
+#' This will edit your .Renviron file only if you call this function directly. If you prefer not to change your .Renviron file, use the \code{set_api_key} function instead.
 #'
 #' @return None
 #'
@@ -52,11 +53,11 @@ configure_googlenlp <- function(){
 
   config_file <- get_config_file()
 
-  # define string to add to .Renviron file
+  # define string to add to config_file file
   string <- "\n\n# Google Cloud API credentials, for use by googlenlp
     GOOGLE_NLP_API_KEY = ENTER_YOUR_API_KEY_HERE"
 
-  # append the string to .Renviron
+  # append the string to config_file
   readr::write_file(x = string, path = config_file, append = TRUE)
 
   # print helper instructions to console
@@ -117,7 +118,7 @@ gcnlp_key <- function() {
 
   config_file <- get_config_file()
 
-  # Check if the API key has been set from your .Renviron file
+  # Check if the API key has been set from your config_file file
   key_renviron <- Sys.getenv("GOOGLE_NLP_API_KEY")
   key_renviron_exists <- (!identical(key_renviron, "") & !is.null(key_renviron))
 

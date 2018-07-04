@@ -1,3 +1,13 @@
+## Resubmission
+This is a resubmission. In this version I have:
+
+* Added angle brackets around the link in the DESCRIPTION file.
+
+* Made it clearer that the user's .Renviron file will only be
+  edited if they call the `configure_googlenlp()` function directly.
+  I also listed out alternative methods of authentication if the
+  user prefers not to edit their .Renviron file.
+
 ## Test environments
 * local OS X install, R 3.4.2
 * Ubuntu 14.04.5 (on travis-ci), R 3.5.0
