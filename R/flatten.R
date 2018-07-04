@@ -32,7 +32,8 @@ flatten_sentences <- function(sentences_list){
 
   # check if any sentences exist
   if (length(sentences_list) == 0) {
-    stop("API did not return any sentences. There is nothing to flatten.", call. = TRUE)
+    warning("API did not return any sentences. There is nothing to flatten.", call. = TRUE)
+    return(NULL)
   }
 
   df1 <- map_df(sentences_list, flatten_df) %>%
@@ -78,7 +79,8 @@ flatten_tokens <- function(tokens_list){
 
   # check if any tokens exist
   if (length(tokens_list) == 0) {
-    stop("API did not return any tokens. There is nothing to flatten.", call. = TRUE)
+    warning("API did not return any tokens. There is nothing to flatten.", call. = TRUE)
+    return(NULL)
   }
 
   map_df(tokens_list, flatten_df) %>%
@@ -119,7 +121,8 @@ flatten_entities <- function(entities_list){
 
   # check if any entities exist
   if (length(entities_list) == 0) {
-    stop("API did not return any entities. There is nothing to flatten.", call. = TRUE)
+    warning("API did not return any entities. There is nothing to flatten.", call. = TRUE)
+    return(NULL)
   }
 
   map_df(entities_list,
@@ -195,7 +198,8 @@ flatten_sentiment <- function(sentiment_list){
 
   # check if the document sentiment exists
   if (length(sentiment_list) == 0) {
-    stop("API did not return the document sentiment. There is nothing to flatten.", call. = TRUE)
+    warning("API did not return the document sentiment. There is nothing to flatten.", call. = TRUE)
+    return(NULL)
   }
 
   as.data.frame(sentiment_list) %>%
