@@ -46,7 +46,9 @@ get_config_file <- function() {
 #' @return None
 #'
 #' @examples
+#' \dontrun{
 #' configure_googlenlp()
+#' }
 #'
 #' @export
 configure_googlenlp <- function(){
