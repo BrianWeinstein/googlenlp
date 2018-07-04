@@ -1,7 +1,7 @@
 
 #' annotate_text
 #'
-#' Send a request, and retrive the \code{sentences}, \code{tokens}, \code{entities}, \code{documentSentiment}, and \code{language} responses.
+#' Send a request, and retrieve the \code{sentences}, \code{tokens}, \code{entities}, \code{documentSentiment}, and \code{language} responses.
 #' This function calls the \href{https://cloud.google.com/natural-language/reference/rest/v1/documents/annotateText}{annotateText} method, which performs the \href{https://cloud.google.com/natural-language/reference/rest/v1/documents/analyzeSyntax}{analyzeSyntax}, \href{https://cloud.google.com/natural-language/reference/rest/v1/documents/analyzeEntities}{analyzeEntities}, and \href{https://cloud.google.com/natural-language/reference/rest/v1/documents/analyzeSentiment}{analyzeSentiment} methods all within one API call.
 #'
 #' @param text_body The text string to send to the API.
@@ -58,7 +58,7 @@ annotate_text <- function(text_body, flatten = TRUE) {
 
 #' analyze_syntax
 #'
-#' Send a request, and retrive the \code{sentences}, \code{tokens}, and \code{language} responses.
+#' Send a request, and retrieve the \code{sentences}, \code{tokens}, and \code{language} responses.
 #' This function retrieves the results from the \href{https://cloud.google.com/natural-language/reference/rest/v1/documents/analyzeSyntax}{analyzeSyntax} method.
 #'
 #' @inheritParams annotate_text
@@ -108,7 +108,7 @@ analyze_syntax <- function(text_body, flatten = TRUE) {
 
 #' analyze_entities
 #'
-#' Send a request, and retrive the \code{entities} and \code{language} responses.
+#' Send a request, and retrieve the \code{entities} and \code{language} responses.
 #' This function retrieves the results from the \href{https://cloud.google.com/natural-language/reference/rest/v1/documents/analyzeEntities}{analyzeEntities} method.
 #'
 #' @inheritParams annotate_text
@@ -155,7 +155,7 @@ analyze_entities <- function(text_body, flatten = TRUE) {
 
 #' analyze_sentiment
 #'
-#' Send a request, and retrive the \code{documentSentiment} and \code{language} responses.
+#' Send a request, and retrieve the \code{documentSentiment} and \code{language} responses.
 #' This function retrieves the results from the \href{https://cloud.google.com/natural-language/reference/rest/v1/documents/analyzeSentiment}{analyzeSentiment} method.
 #'
 #' @inheritParams annotate_text

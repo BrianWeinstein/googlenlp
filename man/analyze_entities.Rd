@@ -17,7 +17,7 @@ A list containing two elements: \code{entities} and \code{language}.
 If \code{flatten} is \code{TRUE}, then the \code{entities} element is converted to a data frame.
 }
 \description{
-Send a request, and retrive the \code{entities} and \code{language} responses.
+Send a request, and retrieve the \code{entities} and \code{language} responses.
 This function retrieves the results from the \href{https://cloud.google.com/natural-language/reference/rest/v1/documents/analyzeEntities}{analyzeEntities} method.
 }
 \examples{

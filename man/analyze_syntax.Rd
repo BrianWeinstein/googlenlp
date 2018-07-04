@@ -17,7 +17,7 @@ A list containing three elements: \code{sentences}, \code{tokens}, and \code{lan
 If \code{flatten} is \code{TRUE}, then the \code{sentences} and \code{tokens} elements are each converted to data frames.
 }
 \description{
-Send a request, and retrive the \code{sentences}, \code{tokens}, and \code{language} responses.
+Send a request, and retrieve the \code{sentences}, \code{tokens}, and \code{language} responses.
 This function retrieves the results from the \href{https://cloud.google.com/natural-language/reference/rest/v1/documents/analyzeSyntax}{analyzeSyntax} method.
 }
 \examples{

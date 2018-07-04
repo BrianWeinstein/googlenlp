@@ -17,7 +17,7 @@ A list containing five elements: \code{sentences}, \code{tokens}, \code{entities
 If \code{flatten} is \code{TRUE}, then the \code{sentences}, \code{tokens}, \code{entities}, and \code{documentSentiment} elements are each converted to data frames.
 }
 \description{
-Send a request, and retrive the \code{sentences}, \code{tokens}, \code{entities}, \code{documentSentiment}, and \code{language} responses.
+Send a request, and retrieve the \code{sentences}, \code{tokens}, \code{entities}, \code{documentSentiment}, and \code{language} responses.
 This function calls the \href{https://cloud.google.com/natural-language/reference/rest/v1/documents/annotateText}{annotateText} method, which performs the \href{https://cloud.google.com/natural-language/reference/rest/v1/documents/analyzeSyntax}{analyzeSyntax}, \href{https://cloud.google.com/natural-language/reference/rest/v1/documents/analyzeEntities}{analyzeEntities}, and \href{https://cloud.google.com/natural-language/reference/rest/v1/documents/analyzeSentiment}{analyzeSentiment} methods all within one API call.
 }
 \examples{
