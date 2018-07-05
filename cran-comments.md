@@ -1,3 +1,8 @@
+## Resubmission, part 2
+This is a follow-up resubmission. In this version I have:
+
+* Removed the angle brackets around the URL in the DESCRIPTION file.
+
 ## Resubmission
 This is a resubmission. In this version I have:
 

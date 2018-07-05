@@ -7,7 +7,7 @@ Version: 0.2.0
 Authors@R: person("Brian", "Weinstien", , "bweinstein02@gmail.com", c("aut",
     "cre"))
 License: MIT + file LICENSE
-URL: <https://github.com/BrianWeinstein/googlenlp>
+URL: https://github.com/BrianWeinstein/googlenlp
 LazyData: TRUE
 Imports:
     dplyr,
