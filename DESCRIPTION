@@ -2,7 +2,10 @@ Package: googlenlp
 Type: Package
 Title: An Interface to Google's Cloud Natural Language API
 Description: Interact with Google's Cloud Natural Language API
-    <https://cloud.google.com/natural-language/> (v1) via R.
+    <https://cloud.google.com/natural-language/> (v1) via R. The API has
+    four main features, all of which are available through this
+    R package: syntax analysis and part-of-speech tagging, entity
+    analysis, sentiment analysis, and language identification.
 Version: 0.2.0
 Authors@R: person("Brian", "Weinstien", , "bweinstein02@gmail.com", c("aut",
     "cre"))
