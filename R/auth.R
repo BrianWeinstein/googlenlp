@@ -21,13 +21,11 @@ gcnlp_env$config_file <- "~/.Renviron"
 #' The path to the user's \code{config_file}
 #'
 #' @examples
-#'
 #' \dontrun{
-#'
 #' get_config_file()
-#'
 #' }
 #'
+#' @export
 get_config_file <- function() {
 
   config_file <- gcnlp_env$config_file
@@ -116,6 +114,7 @@ set_api_key <- function(api_key) {
 #' @return
 #' Your API key
 #'
+#' @export
 gcnlp_key <- function() {
 
   config_file <- get_config_file()

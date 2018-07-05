@@ -1,3 +1,12 @@
+## Resubmission, part 3
+This is a follow-up resubmission. In this version I have:
+
+* Elaborated in the Description text the functionality
+  provided by the Google Cloud Natural Language API.
+
+* Exported all functions that have one or more examples in
+  their documentation.
+
 ## Resubmission, part 2
 This is a follow-up resubmission. In this version I have:
 

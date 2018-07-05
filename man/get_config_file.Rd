@@ -13,11 +13,8 @@ The path to the user's \code{config_file}
 \code{get_config_file()} gets the value of \code{config_file}
 }
 \examples{
-
 \dontrun{
-
 get_config_file()
-
 }
 
 }
