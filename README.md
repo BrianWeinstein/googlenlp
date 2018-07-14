@@ -3,7 +3,11 @@
 googlenlp
 ---------
 
-[![Travis-CI Build Status](https://travis-ci.org/BrianWeinstein/googlenlp.svg?branch=master)](https://travis-ci.org/BrianWeinstein/googlenlp) <!-- [![CRAN version](http://www.r-pkg.org/badges/version/googlenlp)](https://cran.r-project.org/package=googlenlp) ![](http://cranlogs.r-pkg.org/badges/grand-total/googlenlp) -->
+[![Travis-CI Build Status](https://travis-ci.org/BrianWeinstein/googlenlp.svg?branch=master)](https://travis-ci.org/BrianWeinstein/googlenlp)
+
+[![CRAN status](http://www.r-pkg.org/badges/version/googlenlp)](https://cran.r-project.org/package=googlenlp)
+
+[![Download count](https://cranlogs.r-pkg.org/badges/googlenlp)](https://cran.r-project.org/package=googlenlp)
 
 ------------------------------------------------------------------------
 
