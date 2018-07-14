@@ -26,9 +26,16 @@ There are four main features of the API, all of which are available through this
 
 ### Installation
 
-You can install the development version from GitHub:
+The current googlenlp release can be installed from CRAN:
 
 ``` r
+install.packages("googlenlp")
+```
+
+The newest development release can be installed from GitHub:
+
+``` r
+# install.packages('devtools')
 devtools::install_github("BrianWeinstein/googlenlp")
 ```
 
