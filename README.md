@@ -3,7 +3,7 @@
 googlenlp
 ---------
 
-[![Travis-CI Build Status](https://travis-ci.org/BrianWeinstein/googlenlp.svg?branch=master)](https://travis-ci.org/BrianWeinstein/googlenlp)
+[![Travis-CI Build Status](https://travis-ci.org/BrianWeinstein/googlenlp.svg?branch=master)](https://travis-ci.org/BrianWeinstein/googlenlp) <!-- [![CRAN version](http://www.r-pkg.org/badges/version/googlenlp)](https://cran.r-project.org/package=googlenlp) ![](http://cranlogs.r-pkg.org/badges/grand-total/googlenlp) -->
 
 ------------------------------------------------------------------------
 
@@ -82,6 +82,7 @@ The `annotate_text` function analyzes the text's syntax (sentences and tokens), 
 
 ``` r
 analyzed <- annotate_text(text_body = text)
+#> Warning: package 'bindrcpp' was built under R version 3.4.4
 
 str(analyzed, max.level = 1)
 #> List of 5
@@ -803,18 +804,18 @@ analyzed$tokens
 
 ```
 #> # A tibble: 32 x 17
-#>          content beginOffset       lemma   tag         aspect         case         form         gender         mood         number         person         proper         reciprocity         tense         voice dependencyEdge_headTokenIndex dependencyEdge_label
-#>            <chr>       <int>       <chr> <chr>          <chr>        <chr>        <chr>          <chr>        <chr>          <chr>          <chr>          <chr>               <chr>         <chr>         <chr>                         <int>                <chr>
-#>  1        Google           0      Google  NOUN ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN       SINGULAR PERSON_UNKNOWN         PROPER RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                             7                NSUBJ
-#>  2             ,           6           , PUNCT ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN NUMBER_UNKNOWN PERSON_UNKNOWN PROPER_UNKNOWN RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                             0                    P
-#>  3 headquartered           8 headquarter  VERB ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN NUMBER_UNKNOWN PERSON_UNKNOWN PROPER_UNKNOWN RECIPROCITY_UNKNOWN          PAST VOICE_UNKNOWN                             0                 VMOD
-#>  4            in          22          in   ADP ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN NUMBER_UNKNOWN PERSON_UNKNOWN PROPER_UNKNOWN RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                             2                 PREP
-#>  5      Mountain          25    Mountain  NOUN ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN       SINGULAR PERSON_UNKNOWN         PROPER RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                             5                   NN
-#>  6          View          34        View  NOUN ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN       SINGULAR PERSON_UNKNOWN         PROPER RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                             3                 POBJ
-#>  7             ,          38           , PUNCT ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN NUMBER_UNKNOWN PERSON_UNKNOWN PROPER_UNKNOWN RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                             0                    P
-#>  8      unveiled          40      unveil  VERB ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN   INDICATIVE NUMBER_UNKNOWN PERSON_UNKNOWN PROPER_UNKNOWN RECIPROCITY_UNKNOWN          PAST VOICE_UNKNOWN                             7                 ROOT
-#>  9           the          49         the   DET ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN NUMBER_UNKNOWN PERSON_UNKNOWN PROPER_UNKNOWN RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                            11                  DET
-#> 10           new          53         new   ADJ ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN NUMBER_UNKNOWN PERSON_UNKNOWN PROPER_UNKNOWN RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                            11                 AMOD
+#>    content       beginOffset lemma       tag   aspect         case         form         gender         mood         number         person         proper         reciprocity         tense         voice         dependencyEdge_headTokenIndex dependencyEdge_label
+#>    <chr>               <int> <chr>       <chr> <chr>          <chr>        <chr>        <chr>          <chr>        <chr>          <chr>          <chr>          <chr>               <chr>         <chr>                                 <int> <chr>               
+#>  1 Google                  0 Google      NOUN  ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN SINGULAR       PERSON_UNKNOWN PROPER         RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                             7 NSUBJ               
+#>  2 ,                       6 ,           PUNCT ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN NUMBER_UNKNOWN PERSON_UNKNOWN PROPER_UNKNOWN RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                             0 P                   
+#>  3 headquartered           8 headquarter VERB  ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN NUMBER_UNKNOWN PERSON_UNKNOWN PROPER_UNKNOWN RECIPROCITY_UNKNOWN PAST          VOICE_UNKNOWN                             0 VMOD                
+#>  4 in                     22 in          ADP   ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN NUMBER_UNKNOWN PERSON_UNKNOWN PROPER_UNKNOWN RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                             2 PREP                
+#>  5 Mountain               25 Mountain    NOUN  ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN SINGULAR       PERSON_UNKNOWN PROPER         RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                             5 NN                  
+#>  6 View                   34 View        NOUN  ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN SINGULAR       PERSON_UNKNOWN PROPER         RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                             3 POBJ                
+#>  7 ,                      38 ,           PUNCT ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN NUMBER_UNKNOWN PERSON_UNKNOWN PROPER_UNKNOWN RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                             0 P                   
+#>  8 unveiled               40 unveil      VERB  ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN INDICATIVE   NUMBER_UNKNOWN PERSON_UNKNOWN PROPER_UNKNOWN RECIPROCITY_UNKNOWN PAST          VOICE_UNKNOWN                             7 ROOT                
+#>  9 the                    49 the         DET   ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN NUMBER_UNKNOWN PERSON_UNKNOWN PROPER_UNKNOWN RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                            11 DET                 
+#> 10 new                    53 new         ADJ   ASPECT_UNKNOWN CASE_UNKNOWN FORM_UNKNOWN GENDER_UNKNOWN MOOD_UNKNOWN NUMBER_UNKNOWN PERSON_UNKNOWN PROPER_UNKNOWN RECIPROCITY_UNKNOWN TENSE_UNKNOWN VOICE_UNKNOWN                            11 AMOD                
 #> # ... with 22 more rows
 ```
 --->
